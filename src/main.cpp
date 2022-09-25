@@ -53,8 +53,8 @@ struct WOLServerState
 WOLServerState currentState = {false, 0, false, 0, 0, 5000UL, true, true, false, 0};
 
 // MQTT config
-WiFiClient espClient;
-PubSubClient mqttClient(espClient);
+WiFiClient wifiClient;
+PubSubClient mqttClient(wifiClient);
 String clientId = "NodeMCU-Proxmox";
 
 DynamicJsonDocument StateJSON(1024);
@@ -177,7 +177,7 @@ void reconnectMQTT()
     Serial.print("Attempting MQTT connection...");
 #endif
     // Attempt to connect
-    if (mqttClient.connect(clientId.c_str()))
+    if (mqttClient.connect(clientId.c_str(), MQTT_USERNAME, MQTT_PASSWORD))
     {
 #ifdef DEBUG
       Serial.println("connected");

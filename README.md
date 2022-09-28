@@ -1,3 +1,5 @@
 # NodeMCU WakeOnLAN for Proxmox server
 
-Replace `env.cpp.template` in include folder with `env.cpp` and add the variables accordingly.
+## Description
+
+NodeMCU esp8266 WakeOnLAN program for a Proxmox server using MQTT.
